@@ -1,0 +1,139 @@
+/* pages/identityChoose/identityChoose.wxss */
+.container{
+  width: 100%;
+}
+.textContent{
+  width: 100%;
+  text-align: center;
+  padding-top: 130rpx;
+  padding-bottom: 130rpx;
+  font-family: STXihei;
+  font-size: 66rpx;
+  color: rgb(0,0,0);
+}
+form{
+  width: 100%;
+}
+.chooseContent{
+  width: 100%;
+}
+.radio-group{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.vipContent{
+  width: 50%;
+}
+.workerContent{
+  width: 50%;
+}
+.rotateCtn{
+  width: 100%;
+  position: relative;
+  transform-style:preserve-3d;
+}
+.frame{
+  width: 75%;
+  height: 360rpx;
+  border: 1px solid rgb(255,210,0);
+  border-radius: 30rpx;
+  font-family: STXihei;
+  font-size: 28rpx;
+  color: rgb(0,0,0);
+  position: absolute;
+  top: 0rpx;
+  background-color: white;
+  left: 12%;
+  display: flex;
+  display: -webkit-flex;
+}
+.frame text{
+  height: 90%;
+  width: 90%;
+  overflow: scroll;
+  padding: 5%;
+}
+.front{
+  animation:front 1s linear 1;
+  backface-visibility: hidden;
+}
+.back{
+  animation:back 1s linear 1;
+}
+@keyframes front{
+			from{transform: rotateY(0deg);}
+			to{transform: rotateY(180deg);}
+		}
+ 
+@keyframes back{
+	  from{transform: rotateY(-180deg);}		
+    to{transform: rotateY(0deg);}
+  }
+.z1{
+  z-index:6
+}
+.z2{
+  z-index:5
+}
+lable{
+  font-size: 36rpx;
+}
+.frame image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 44rpx;
+  margin-bottom: 50rpx;
+}
+.questionCtn1{
+  font-family: STXihei;
+  font-size: 28rpx;
+  color:#606060;
+  text-align: center;
+  padding-top: 22rpx;
+  text-decoration: underline;
+  position: absolute;
+  top: 62%;
+  left:15%;
+}
+.questionCtn2{
+  font-family: STXihei;
+  font-size: 28rpx;
+  color:#606060;
+  text-align: center;
+  padding-top: 22rpx;
+  text-decoration: underline;
+  position: absolute;
+  top: 62%;
+  left:65%;
+}
+.nextBtnCtn{
+  width: 100%;
+  height: 80rpx;
+  margin-top: 143rpx;
+  position: absolute;
+  bottom: 20%;
+}
+button::after{
+  border: 0;
+}
+.nextBtn_unchoose{
+  width: 35%;
+  height: 100%;
+  border-radius: 20rpx;
+  border: 1px solid rgb(166,166,166);
+  color: rgb(166,166,166);
+  background-color: white;
+  font-family: STXihei;
+  font-size: 34rpx;
+}
+.nextBtn{
+  width: 35%;
+  height: 100%;
+  border-radius: 20rpx;
+  border: 1px solid rgb(255,210,0);
+  color: rgb(255,210,0);
+  background-color: white;
+  font-family: STXihei;
+  font-size: 34rpx;
+}

@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/association/association",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/stDetail/stDetail",
+    "pages/hdDetail/hdDetail",
+    "pages/joinActivity/joinActivity",
+    "pages/hdSuccessJoin/hdSuccessJoin",
+    "pages/identityChoose/identityChoose",
+    "pages/joinSt/joinSt",
+    "pages/stClassify/stClassify"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "青芒社团",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#ffd200",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabBarIcon/activity_off.png",
+        "selectedIconPath": "images/tabBarIcon/activity_on.png",
+        "text":"首页"
+      },
+      {
+        "pagePath": "pages/association/association",
+        "iconPath": "images/tabBarIcon/association_off.png",
+        "selectedIconPath": "images/tabBarIcon/association_on.png",
+        "text":"社团"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/tabBarIcon/my_icon_off.png",
+        "selectedIconPath": "images/tabBarIcon/my_icon.png",
+        "text":"我的"
+      }
+    ]
+  }
+}

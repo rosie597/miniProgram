@@ -1,0 +1,160 @@
+/* pages/joinSt/joinSt.wxss */
+.stIconContent{
+  width: 100%;
+  height: 260rpx;
+  text-align: center;
+}
+.stImage{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 30rpx;
+}
+.stSlogen{
+  width: 100%;
+  height: 50rpx;
+  text-align: center;
+  font-family: MicrosoftYaHei;
+  font-size: 36rpx;
+  color: rgb(10, 10, 10);
+}
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: rgb(201, 201, 201);
+  margin-top: 3%;
+  box-shadow: 0 8rpx 28rpx rgba(0,0,0,0.20);
+}
+.formArea{
+  width: 80%;
+  padding-right: 20%;
+}
+.formArea form{
+  width: 100%;
+}
+.itemArea{
+  width: 100%;
+  height: 110rpx;
+  position: relative;
+  display: flex;
+}
+.itemTextArea{
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+  margin-top:40rpx;
+}
+.inputContent{
+  width: 60%;
+  height: 50rpx;
+  margin-left: 4%;
+}
+.textContent{
+  width: 70%;
+  height: 340rpx;
+  margin-left: 42%;
+}
+.inputContent input{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: STXihei;
+  color: rgb(76, 76, 76);
+  background-color: #eeeeee;
+  border-radius: 10rpx;
+}
+textarea{
+  width: 95%;
+  height: 320rpx;
+  padding: 10rpx;
+  font-size: 32rpx;
+  font-family: STXihei;
+  color: rgb(76, 76, 76);
+  background-color: #eeeeee;
+  border-radius: 10rpx;
+}
+.itemArea text{
+  text-align: right;
+  width: 40%;
+  color: #606060;
+  font-size: 36rpx;
+  font-family: STXihei;
+}
+.itemTextArea text{
+  text-align: right;
+  width: 40%;
+  color: #606060;
+  font-size: 36rpx;
+  font-family: STXihei;
+  position: absolute;
+  right:65%;
+}
+.radio-group{
+  width: 60%;
+  height: 50rpx;
+  margin-left: 4%;
+  font-family: STXihei;
+  font-size: 36rpx;
+  display: flex;
+  justify-content: space-around;
+  color: rgb(76, 76, 76);
+}
+.pickIcon{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 5%;
+  top:40%;
+  z-index: 9;
+}
+.njItems{
+  position: absolute;
+  width: 50%;
+  height: 220rpx;
+  top: 80rpx;
+  right: 0%;
+  box-shadow: 4rpx 4rpx 10rpx #eeeeee;
+  z-index: 10;
+  background-color: white;
+  overflow: scroll;
+}
+.njItem{
+  width: 90%;
+  border-bottom: 1px solid #eeeeee;
+  font-family: STXihei;
+  font-size: 32rpx;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: #606060;
+}
+.btnArea{
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+  padding-left: 10%;
+}
+.confirmImg{
+  width: 110rpx;
+  height: 110rpx;
+  z-index: 1;
+}
+textarea::after{
+  border: 0;
+}
+button::after{
+  border: 0;
+  padding: 0;
+}
+.nextBtn{
+  width: 35%;
+  height: 50%;
+  border-radius: 20rpx;
+  border: 1px solid rgb(255,210,0);
+  color: rgb(255,210,0);
+  background-color: white;
+  font-family: STXihei;
+  font-size: 34rpx;
+  line-height: 0;
+}

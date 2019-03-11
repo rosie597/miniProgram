@@ -1,0 +1,30 @@
+<!--pages/stSort/stSort.wxml-->
+<view class='container flex flex-v flex-a-c flex-j-j'>
+  <!--头部tab按钮  -->
+    <view class='stTabContent flex flex-a-c flex-j-j'>
+      <block wx:for="{{districts}}" wx:key='{{item.district}}'>
+        <view class="stTab flex flex-v flex-a-c flex-j-c" bindtap='stTabTapFn' id='{{item.district}}'>
+          <view>{{item.district}}</view>
+          <view class='tabBtmIcon' wx:if="{{item.show}}"></view>
+        </view>
+      </block>
+    </view>
+    
+  <view class='stContent flex flex-v flex-a-c' wx:for="{{stMessage}}" wx:key="{{item.name}}">
+    <view class='stItem flex' bindtap='toStDetailFn' id='{{item.id}}' data-name='{{item.name}}'>
+      <view class='stImageContent flex'>
+        <image class='stImage' src='{{item.logoUrl}}' mode='aspectFit'></image>
+        <view class='stTitleIcon'></view>
+      </view>
+      <view class='stTextContent flex flex-v'>
+          <view class='stTitleContent flex flex-j-j'>
+            <view class='stName flex flex-a-c'>{{item.name}}</view>
+          </view>
+          <view class='stType'>{{item.associationCategory}}</view>
+          <!-- <view class='stSlogen flex flex-a-c'>{{item.slogan}}</view> -->
+          <view class='stDetail'>{{item.activityIntroduction}}</view>
+        </view>
+    </view>
+  </view>
+
+</view>

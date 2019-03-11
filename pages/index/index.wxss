@@ -1,0 +1,349 @@
+/* pages/index/index.wxss */
+page{
+  background-color: rgb(255,255,255);
+  height: 100%;
+}
+._grey{
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.qmLogo{
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  top: 9%;
+}
+.guide_card{
+  width: 48%;
+  height: 39.6%;
+  border-radius: 20px;
+  background-color: #fff;
+  position: relative;
+  top: 30.2%;
+  left: 26%;
+  text-align: center;
+}
+.text1{
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  text-align: center;
+  font-family: HYQiHeiY1-DEW;
+  font-size: 36rpx;
+}
+.text2{
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  text-align: center;
+  font-size: 36rpx;
+}
+.btn1{
+  width: 25%;
+  height: 55rpx;
+  position: absolute;
+  left: 37.5%;
+  top: 73%;
+  background-color: rgb(255, 210, 0);
+  color: white;
+  font-family: HYQiHeiY1-DEW;
+  font-size: 32rpx;
+  border-radius: 20rpx;
+}
+.hand{
+  width: 110rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 85%;
+  left: 65%;
+}
+.noneImg{
+  width: 750rpx;
+  height: 300rpx;
+  opacity: 0.30;
+  margin-bottom: 35%;
+}
+.headContent{
+  width: 100%;
+  background-color: white;
+  position: relative;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  line-height: 0;
+}
+.searchIcon{
+  position: absolute;
+  left:61%;
+  z-index: 2;
+  top:38%;
+}
+.searchText{
+  font-family:HYQiHeiY1-DEW;
+  font-size:30rpx;
+  color:rgb(132,132,132);
+  position: absolute;
+  top:50%;
+  z-index: 2;
+  left: 66%;
+}
+.topInput{
+  width: 38.7%;
+  height: 100%;
+  text-align: center;
+  margin-left: 28%;
+  /* border: 1rpx solid rgba(138,138,138,0.4); */
+  border-radius: 50px;
+  background-color: rgb(242, 242, 242);
+  color: rgba(138,138,138,0.4);
+  font-size: 30rpx;
+  z-index: 1;
+  font-family: AdobeHeitiStd-Regular;
+}
+.hotActivity{
+  text-align: center;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+.hAtitlle{
+  width: 30%;
+  text-align: center;
+  line-height: 1;
+}
+
+.hot_detailInfo{
+  font-family: HYQiHeiY1-DEW;
+  font-size: 26rpx;
+  color: rgb(170,170,170);
+}
+.h1{
+  width: 100%;
+  font-size: 20px;
+  color: #010101;
+  font-family: AdobeHeitiStd-Regular;
+}
+.swiper{
+  position: relative;
+  height:340rpx;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.slide-image{
+  width:90%;
+  height:320rpx;
+  border-radius: 10px;
+  box-shadow: 12rpx 12rpx 20rpx rgba(0,0,0,0.15);
+}
+.hotDetail{
+  width: 72%;
+  height: 120rpx;
+  margin-left: 5%;
+  position: relative;
+}
+.hotDetail image{
+  position: absolute;
+  width: 48rpx;
+  height: 60rpx;
+  right: 0;
+  top: 25%;
+}
+
+/* .imgTitle{
+  width:94.6%;
+  height:75rpx;
+  background-color: rgba(142, 142, 142, 0.3);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position:absolute;
+  bottom:50rpx;
+  left:2.7%;
+} */
+.h2{
+    color: rgba(255, 255, 255,0.7);
+    font-size: 40rpx;
+    float: left;
+    position:absolute;
+    top:20%;
+    left:2%;
+    font-family: STXihei;
+    z-index: 10；
+}
+.nextIcon{
+  width:40rpx;
+  height:40rpx;
+  position: absolute;
+  top:20%;
+  right:5%;
+  opacity: 0.6;
+}
+.Dots{
+    width: 100%;
+    height:50rpx;
+    background-color: rgba(255, 255, 255,0);
+    bottom: 0;
+}
+.dot{
+  width: 40rpx;
+  height:4rpx;
+  margin-left: 15rpx;
+}
+.moreActivity{
+  width:100%;
+  text-align: center;
+}
+.mATitle{
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 6rpx;
+  background-color: white;
+}
+.mATabContent{
+  width: 100%;
+  height:80rpx;
+  background-color: white;
+}
+.mAtab{
+  position: relative;
+  width: 33.3%;
+  height: 100%;
+  text-align: center;
+}
+.mAtab span{
+  /* position: absolute;
+  top:12rpx; */
+  font-size: 34rpx;
+  font-family:"STXihei";
+}
+.tabBtmIcon{
+  position: absolute;
+  bottom: 0rpx;
+  width: 50rpx;
+  height:8rpx;
+  background-color: #ffd200;
+  left:40%;
+}
+.mACardContent{
+  width: 100%;
+}
+.mACardItem{
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+  padding-bottom: 50rpx;
+}
+.img_ctn{
+  width: 50%;
+  height: 100%;
+}
+.mACardImage{
+  width: 80%;
+  height: 200rpx;
+  border-radius: 10rpx;
+  box-shadow: 4rpx 4rpx 14rpx rgba(0,0,0,0.16);
+}
+.mAImgTitle{
+  width:93.6%;
+  height:75rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  position:absolute;
+  bottom: 20rpx;
+  left:3.2%;
+  background-color: rgba(142, 142, 142, 0.3);
+}
+.right-info{
+  width: 50%;
+  height: 190rpx;
+  margin-top: 10rpx;
+  word-wrap: break-word;
+  position: relative;
+}
+.goto{
+  height: 30rpx;
+  width: 16rpx;
+  position: absolute;
+  top: 35%;
+  right: 30rpx;
+}
+.maDetail{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.maTitle{
+  font-family: HYQiHeiY1-DEW;
+  font-size: 30rpx;
+  text-align: left;
+}
+.maSponsor{
+  font-family: HYQiHeiY1-DEW;
+  font-size: 24rpx;
+  color: rgb(196,196,196);
+  text-align: left;
+  position: absolute;
+  left: 0;
+  top: 40%;
+}
+.when_where{
+  font-family: HYQiHeiY1-DEW;
+  font-size: 24rpx;
+  color: rgb(196,196,196);
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* 更多活动 */
+.selectArea{
+  width: 25%;
+  margin-left: 45%;
+  font-family:HYQiHeiY1-DEW;
+  font-size: 34rpx;
+  color: rgb(76,76,76);
+}
+.selectArea view{
+  font-size: 34rpx;
+  font-family: "STXihei";
+  color:rgb(0,0,0);
+  text-align: center;
+  right:5%;
+}
+.selectIcon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.selectItems{
+  width: 20%;
+  height: 160rpx;
+  border-radius: 6rpx;
+  position: absolute;
+  top:80rpx;
+  left: 75%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 4rpx 4rpx 14rpx rgb(242, 242, 242);
+  z-index: 10;
+}
+.selectItem_selected{
+  width: 85%;
+  height: 33.3%;
+  color:rgba(63, 63, 63,0.8);
+  padding-left: 10%;
+  font-size: 34rpx;
+  font-family: "STXihei"; 
+  border-right: 3px solid rgb(255, 210, 0);
+}
+.selectItem{
+  width: 90%;
+  height: 33.3%;
+  color:rgba(63, 63, 63,0.8);
+  padding-left: 10%;
+  font-size: 34rpx;
+  font-family: "STXihei"; 
+  z-index: 11;
+}

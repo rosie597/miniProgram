@@ -1,0 +1,61 @@
+<!--pages/mine/mine.wxml-->
+<view class='container' bindtap='pageTap'>
+  <view class='top flex flex-v flex-a-c'>
+    <!-- <image src='../../images/tabBarIcon/mine_top.png' class='topimg' mode='aspectFit'></image> -->
+    <image src="{{headingUrl}}" class='head'></image>
+    <text class='username'>{{nickName}}</text>
+    <view class='topBtn flex flex-a-c flex-j-c'>
+      <view class='notice flex flex-j-c' bindtap='noticeAppear'>
+        <image src="../../images/{{isNoticeChecked?'speaker_on':'speaker_off'}}.png"></image>
+        <text class="{{isNoticeChecked?'is_checked':'normal'}}">通知</text>
+      </view>
+      <view class='like flex flex-j-c' bindtap='likeAppear'>
+        <image src="../../images/{{isLikeChecked?'like-on':'like-off'}}.png"></image>
+        <text class="{{isLikeChecked?'is_checked':'normal'}}">喜欢</text>
+      </view>
+    </view>
+  </view>
+  <view class='middle' wx-if="{{isNoticeChecked}}">
+    <image src='../../images/tabBarIcon/no_notice.png' style='width:750rpx;border-bottom:200rpx solid transparent;' mode='aspectFit' wx:if='{{noticeItems.length==0?true:false}}'></image>
+    <swiper next-margin='150rpx' wx:if='{{noticeItems.length!=0?true:false}}'>
+      <block wx:for="{{noticeItems}}">
+        <swiper-item>
+          <view class='item'>
+            <view class='itemTop'>
+              <text class='title'>{{item.type=='notice'?item.event:item.title}}</text>
+              <view class='itemTopBottom flex flex-a-c flex-j-j'>
+                <view class='flex flex-a-c' style='width:50%;'>
+                  <!-- <view class='circle' wx:if="{{item.type=='notice'}}" style="background-color:{{item.status==1?'rgb(201,201,201)':'rgb(255,210,0)'}}"></view>
+                  <text class='uncertain' wx:if="{{item.type=='notice'}}" style="color:{{item.status==1?'rgb(201,201,201)':'rgb(255,210,0)'}}">{{item.status==1?"已确认":"未确认"}}</text> -->
+                  <view class='stName'>{{item.association}}</view>
+                </view>
+                <text class='time'>{{item.time}}</text>
+              </view>
+            </view>
+            <view class='content' space='nbsp' style="height:{{item.type=='notice'?'58%':'68%'}}">
+              {{item.content}}
+            </view>
+            <view class='pullCtn' style="top:{{item.type=='notice'?'73%':'83%'}}"></view>
+            <view class='btn{{item.status}}' bindtap='confirmFn' id='{{index}}' data-noticeId='{{item.noticeId}}' wx:if="{{item.type=='notice'}}">{{item.status==1?"已确认":"收到"}}</view>
+            <image class='shadow' src='../../images/btn_shadow.png' wx:if="{{item.status!=1&&item.type=='notice'}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='middle' wx-if="{{isLikeChecked}}">
+    <image src='../../images/tabBarIcon/no_like.png' style='width:750rpx;border-bottom:200rpx solid transparent;' mode='aspectFit' wx:if='{{likeItems.length==0}}'></image>
+    <scroll-view scroll-y wx:if='{{likeItems.length!=0}}'>
+      <view class='stItem' wx:for="{{likeItems}}" wx:key='{{item.campus}}' bindtap='toStDetail' data-name='{{item.associationName}}'>
+        <view class='stPhoto'><image src='{{item.logoUrl}}' mode='aspectFit'></image></view>
+        <text class='name'>{{item.associationName}}</text>
+        <text class='area'>{{item.campus}}</text>
+      </view>
+      <view class='tip'>没有更多啦，去多关注一些社团吧~</view>
+    </scroll-view>
+  </view>
+  <view class='bottom' catchtap='contactFn' style='height:{{contactHeight}}'>
+    <view class='contact'>联系我们</view>
+    <view class='coorperation'>商务合作  ug_lixiaodong@163.com</view>
+  </view>
+</view>

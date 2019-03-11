@@ -1,0 +1,75 @@
+<!--pages/search/search.wxml-->
+<view class='container'  bindtap='pageTabFn'>
+  <view class='container1 flex flex-v flex-a-c flex-j-j'>
+    <view class='searchContent'>
+      <icon type='cancel' class='cancelIcon' size='15' color='rgba(63, 63, 63, 0.4)' wx:if="{{isCancelShow}}" bindtap='inputCancelFn'></icon>
+      <view class='iconCtn flex flex-a-c flex-j-c'  catchtap='pickIconFn'>
+        <image src='../../images/pulldownicon.png' class='pickIcon'></image>
+      </view>
+      <form class='searchForm flex flex-a-c' bindsubmit='searchSubmitFn'>
+        <input value="{{searchValue}}" class='topInput' name='input' placeholder='{{placeholder}}' bindinput='inputFn' bindblur='inputBlurFn' auto-focus='true'/>
+        <button formType='submit' class='searchBtn flex flex-a-c flex-j-c'>搜索</button>
+      </form>
+      <view class='selectItems flex flex-v' wx:if="{{isSelectShow}}">
+        <block wx:for="{{ranges}}">
+          <view class="{{item==placeholder?'rangesItem_selected':'rangesItem'}}" hover-class='rangesItem_selected' bindtap='rangesItemFn' data-index="{{index}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='classifyContent' wx:if='{{isOriginalShow}}'>
+      <view class='title flex flex-a-c flex-j-c'>
+        <h>社团分类</h>
+      </view>
+      <view class='csfItemContent flex'>
+        <block wx:for="{{classification}}" wx:key='{{item}}'>
+          <view class='csfItem flex flex-a-c flex-j-c' id='{{item.id}}' bindtap='toCsfStFn' data-name='{{item.name}}'>{{item.name}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='historyContent' wx:if='{{isOriginalShow}}'>
+      <view class='title flex flex-a-c flex-j-c'>
+        <h>历史搜索</h>
+        <image src='../../images/trashbin.png' class='deleteIcon' bindtap='historyDelFn' ></image>
+      </view>
+      <view class='htrItemContent flex flex-v flex-a-c flex-j-c'>
+        <block wx:for="{{searchRecord}}" wx:key='{{item}}'>
+          <view class='htrItem flex flex-a-c' bindtap='autoSearchFn' id='{{item.value}}'>{{item.value}}</view>
+        </block> 
+        <view class='noHistoryItem flex flex-a-c' wx:if="{{searchRecord.length==0}}">你还没有搜索记录</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='outcomeCtn' wx:if='{{isOutcomeShow}}'>
+    <view class='title flex flex-a-c flex-j-c'>
+      <h>搜索结果</h>
+    </view>
+    <view class='outcomeItemCtn'>
+      <block wx:for='{{outcomeInfo}}' wx:key='{{item.name}}'>
+        <view class='outcomeItem flex' id='{{item.id}}' data-typename='{{item.type.typeName}}' data-name='{{item.name}}' bindtap='outcomeTapFn'>
+            <view class='outcomeTitle flex flex-v flex-j-j'>
+              <view style='font-size:34rpx'>{{item.name}}</view>
+              <view wx:if="{{item.association?true:false}}">{{item.association}}</view>
+            </view>
+            <view class='typeCtn flex flex-a-c flex-j-c'>
+              {{item.type.typeName}}  {{item.campus}}
+            </view>
+            <view class='imageCtn flex flex-a-c flex-j-c'>
+              <image src='../../images/u776.png' class='gotoImg'></image>
+            </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class='noneOutcomeCtn' wx:if='{{isNoneShow}}'>
+    <view class='title flex flex-a-c flex-j-c'>
+      <h>搜索结果</h>
+    </view>
+    <view class='noneTextCtn flex flex-a-c'>
+      <text>没有搜索到相关结果</text>
+    </view>
+  </view>
+</view>

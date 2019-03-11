@@ -1,0 +1,81 @@
+<!--pages/hdDetail/hdDetail.wxml-->
+<view class='container'>
+  <view class='_grey flex flex-j-c flex-a-c' catchtouchmove="preventTouchMove" wx:if='{{isVideoShow}}'>
+    <icon type='cancel' size='30' color='white' bindtap='cancelVideo' style='margin:20rpx 0 0 20rpx;position:absolute;'></icon>
+    <video class='video' src='{{videoUrl}}' controls objectFit='fill' bindplay='videoPlayFn'></video>
+  </view>
+  <view class='swiperCtn'>
+    <swiper class='imageContent' scroll-x="true" bindchange='swiperChange'>
+      <swiper-item class='hdImage' wx:if="{{imgUrls==''?true:false||isVideoShow}}">
+        <!--<video class="slide-image" src="{{videoUrl}}" width="355" height="150" show-center-play-btn="{{true}}"  controls bindtap='videoTapFn' >
+          <cover-view class='btnCtn flex flex-a-c flex-j-j' wx:if='{{isCoverShow}}'>
+            <cover-view class="{{isVideoShow?'btn-hover flex flex-a-c flex-j-j':'btn flex flex-a-c flex-j-j'}}" bindtap='viewVideoFn' wx:if="{{videoUrl==''||imgUrls==''?false:true}}">
+              <cover-image src='../../images/videoLogo.png' style="width:28rpx;height:28rpx;"></cover-image>
+              <cover-view>视频</cover-view>
+            </cover-view>
+            <cover-view class="{{isImgShow?'btn-hover flex flex-a-c flex-j-j':'btn flex flex-a-c flex-j-j'}}" bindtap='viewImgFn' wx:if="{{videoUrl==''||imgUrls==''?false:true}}">
+              <cover-image src='../../images/imgLogo.png' style="width:28rpx;height:28rpx;"></cover-image>
+              <cover-view>图片</cover-view>
+            </cover-view>
+          </cover-view>
+        </video>
+-->
+      </swiper-item>
+      <block wx:for="{{imgUrls}}">
+        <swiper-item class='hdImage'>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='btnCtn flex flex-v flex-a-c'>
+        <view class="{{isImgShow1?'btn-hover flex flex-a-c flex-j-j':'btn flex flex-a-c flex-j-j'}}" bindtap='viewImgFn'  wx:if="{{imgUrls==''?false:true}}">
+          <image src='../../images/imgLogo.png' style="width:28rpx;height:28rpx;"></image>
+          <text>{{currentNum}}/{{imgUrls.length}}</text>
+        </view>
+        <view class="{{isVideoShow1?'btn-hover flex flex-a-c flex-j-j':'btn flex flex-a-c flex-j-j'}}" bindtap='viewVideoFn' wx:if="{{videoUrl==''?false:true}}">
+          <image src='../../images/videoLogo.png' style="width:28rpx;height:28rpx;"></image>
+          <text>视频</text>
+        </view>
+        <!-- <view class='numIcon flex flex-a-c flex-j-c' wx:if="{{imgUrls==''?false:true}}">{{currentNum}}/{{imgUrls.length}}</view> -->
+    </view>
+  </view>
+  <view class='stDetailCard'>
+    <view class='st_title'>
+      <text>{{detailInfo.name}}</text>
+    </view>
+    <view class='flex flex-a-c' style='width:100%;height:80rpx;position:absolute;'>
+      <view class='campus'>{{detailInfo.association.campusName}}</view>
+      <view class='time' wx:if='{{detailInfo.startTime}}'>{{detailInfo.startTime}}</view>
+    </view>
+    <view class='btnArea flex flex-a-c flex-j-j'>
+      <view class='btnArea1 flex'>
+        <button class='_btn1 flex flex-j-c' open-type='share' hover-class='_btnHover'>
+          分享
+        </button>
+        <image src='../../images/share_icon.png' class='btnImg'></image>
+      </view>
+      <view class='btnArea1 flex'>
+        <button class='_btn{{joinStatus}} flex flex-j-c' hover-class='_btnHover' disabled='{{joinStatus!=1}}' bindtap='_btnTap'>
+          {{btnText}}
+        </button>
+        <image src='../../images/sign_in.png' class='btnImg'></image>
+      </view>
+    </view>
+    <view class='stCard flex'>
+      <image src='{{detailInfo.association.associationLogo}}' mode='aspectFit'></image>
+      <view class='textCtn'>
+        <view class='top_t' style='font-size:26rpx;color:#4c4c4c;'>{{detailInfo.association.associationName}}</view>
+        <view class='btm_t' style='font-size:22rpx;color:#aaaaaa;'>{{detailInfo.association.associationSlogan}}</view>
+      </view>
+      <view>
+        <image src='{{followSrc}}' bindtap='isFollowFn' style="width:75rpx;height50rpx;" mode='aspectFit'></image>
+      </view>
+    </view>
+  </view>
+  <view class='textContent flex flex-j-c'>
+    <span>{{detailInfo.introduction}}</span>
+  </view>
+  <!-- <view class='joinBtnContent flex flex-a-c flex-j-c' wx:if="{{isBtnShow}}">
+    <button class="{{status?'joinBtn flex flex-a-c flex-j-c':'joinBtn2 flex flex-a-c flex-j-c'}}" bindtap='jionBtnFn' hover-class="{{status?'joinBtn_hover flex flex-a-c flex-j-c':''}}">{{btnText}}</button>
+  </view> -->
+</view>

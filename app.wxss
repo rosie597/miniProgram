@@ -1,0 +1,42 @@
+/**app.wxss**/
+.container {
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height:100%;
+} 
+button::after {
+  border: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+}
+.flex{
+  display: flex;
+  display: -webkit-flex;
+  display: -webkit-box;
+}
+.flex-v{
+  flex-direction: column;
+  -webkit-box-orient: vertical;  
+  -webkit-flex-direction: column;
+}
+.flex-a-c{
+    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+}
+.flex-j-c{
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+}
+.flex-j-j{
+    justify-content: space-around;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: justify;
+}

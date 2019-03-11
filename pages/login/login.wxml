@@ -1,0 +1,7 @@
+<!--pages/login/login.wxml-->
+<view class='getInfoCtn flex flex-v flex-a-c flex-j-c'>
+    <image src='../../images/logo.png'></image>
+    <view class='text' word-wrap='wrap'>青芒社团申请获得您的（昵称、头像等）公开信息的权限</view>
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" type='primary'>授权登录</button>
+    <view wx:else>请升级微信版本</view>
+</view>

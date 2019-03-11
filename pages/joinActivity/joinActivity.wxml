@@ -1,0 +1,85 @@
+<!--pages/join/join.wxml-->
+<view class='container flex flex-v flex-a-c flex-j-j' bindtap='pageTabFn'>
+  <view class='imageContent'>
+    <image src='{{imageUrl}}'></image>
+  </view>
+  <view class='formArea flex flex-v flex-a-c'>
+    <form class='joinForm flex flex-v flex-a-c' bindsubmit='joinSubmit'>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.realname}}'>
+        <text>姓名</text>
+        <view class='inputContent'>
+          <input type='text' name="realname" value="{{_formVal.realname}}"></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.sex}}'>
+        <text>性别</text>
+        <radio-group name="sex" class='radio-group flex flex-a-c flex-j-j' bindchange="radioChange">
+          <label><radio value="boy" color='rgb(255,210,0)' checked="{{_formVal.sex=='boy'}}"/>男</label>
+          <label><radio value="girl" color='rgb(255,210,0)' checked="{{_formVal.sex=='girl'}}"/>女</label>
+        </radio-group>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.institute}}'>
+        <text>学院</text>
+        <view class='inputContent'>
+          <input type='text' name='institute' value='{{_formVal.institute}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.profession}}'>
+        <text>专业</text>
+        <view class='inputContent'>
+          <input type='text' name='profession' value='{{_formVal.profession}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.grade}}'>
+        <text>年级</text>
+        <!-- <view class='njPickContent flex flex-a-c flex-j-c'> -->
+          <view class='inputContent'>
+            <!--禁用输入框,绑定value的值  -->
+            <input name='grade' type='text' class='chooseVal' disabled value='{{njValue}}'catchtap='pickNjFn'></input>
+            <image class='pickIcon' src='../../images/pulldownicon.png'></image>
+          </view>
+          <!-- <image class='pickIcon' src='../../images/pulldownicon.png'></image> -->
+        <!-- </view> -->
+        <scroll-view class='njItems flex flex-v' wx:if="{{isPickShow}}" scroll-y="true">
+          <block  wx:for='{{njItems}}' wx:key='{{item}}'>
+            <!--绑定data index方便调用 -->
+            <view class='njItem' catchtap='njItemFn' data-index="{{index}}">{{item}}</view>
+          </block>
+        </scroll-view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.studentnum}}'>
+        <text>学号</text>
+        <view class='inputContent'>
+          <input type='number' name='studentId' value='{{_formVal.studentId}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.telephone}}'>
+        <text>手机号码</text>
+        <view class='inputContent'>
+          <input type='number' name='telephone' value='{{_formVal.telephone}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.wechat}}'>
+        <text>微信</text>
+        <view class='inputContent'>
+          <input type='text' name='wechat' value='{{_formVal.wechat}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.qq}}'>
+        <text>QQ号码</text>
+        <view class='inputContent'>
+          <input type='number' name='qq' value='{{_formVal.qq}}'></input>
+        </view>
+      </view>
+      <view class='itemTextArea flex' wx:if='{{isItemShow.desc}}'>
+        <text>自我介绍</text>
+        <view class='textContent'>
+          <textarea id='selfConduction' name='desc' value='{{_formVal.desc}}'></textarea>
+        </view>
+      </view>
+      <view class='btnArea flex flex-a-c flex-j-c'>
+        <button class='nextBtn flex flex-a-c flex-j-c' formType='submit'>提交</button>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,54 @@
+<!--pages/identityChoose/identityChoose.wxml-->
+<view class='container flex-v flex-a-c flex-j-j'>
+  <view class='textContent'>
+    <text>我想成为</text>
+  </view>
+  <form bindsubmit='submitFn'>
+    <view class='chooseContent'>
+      <radio-group class="radio-group flex flex-j-j" bindchange="radioChange">
+        <view class='vipContent flex flex-v flex-a-c flex-j-c'>
+          <view class='rotateCtn'>
+            <!--正面的框  -->
+            <view class='{{frameClass1}}' data-id='1'  bindtap='vipCtnFn'>
+              <image src='../../images/tabBarIcon/vipicon.png'></image>
+              <label>
+                <radio value="会员" name="会员" checked="{{vipChecked}}" color='rgb(255,210,0)' disabled='{{isVipDisable}}'/>会员
+              </label>
+            </view>
+            <!--背面的框  -->
+            <view class='{{frameClass2}}' data-id='2' bindtap='vipCtnFn' >
+              <text>{{vipText}}</text>
+            </view>
+          </view>
+
+          <view class='questionCtn1' bindtap='vipDetailFn' data-id='3'>
+            <text>什么是会员？</text>
+          </view>
+        </view>
+        <view class='workerContent flex flex-v flex-a-c flex-j-c' data-id='{{card1}}'>
+          <view class='rotateCtn flex flex-v flex-a-c flex-j-c'>
+            <!--正面的框  -->
+            <view class='{{frameClass3}}' data-id='1' bindtap='workerCtnFn'>
+              <image src='../../images/tabBarIcon/workericon.png'></image>
+              <label>
+                <radio value="干事" name="干事" checked="{{workerChecked}}" color='rgb(255,210,0)' disabled='{{isWorkerDisable}}'/>干事
+              </label>
+            </view>
+
+            <!--背面的框  -->
+            <view class='{{frameClass4}}' bindtap='workerCtnFn' data-id='2'>
+              <text>{{workerText}}</text>
+            </view>
+          </view>
+
+          <view class='questionCtn2' bindtap='workerDetailFn' data-id='3'>
+            <text>什么是干事？</text> 
+          </view>
+        </view>
+      </radio-group>
+    </view>
+    <view class='nextBtnCtn'>
+      <button class="{{chooseVal==''?'nextBtn_unchoose  flex flex-a-c flex-j-c':'nextBtn flex flex-a-c flex-j-c'}}" formType='submit'>下一步</button>
+    </view>
+  </form>
+</view>

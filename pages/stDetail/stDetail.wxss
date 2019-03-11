@@ -1,0 +1,585 @@
+/* pages/stDetail/stDetail.wxss */
+/*顶部tab样式  */
+page{
+  position: relative;
+  height: 100%;
+}
+.sq_card{
+  width: 60%;
+  background-color: white;
+  position: absolute;
+  left: 20%;
+  top: 25%;
+  text-align: center;
+  border-radius: 20rpx;
+}
+.sq_card image{
+  width:150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-top: 5%;
+}
+.sq_card .text{
+  font-size: 32rpx;
+  color: #6e6e6e;
+  text-align: center;
+  padding: 6%
+}
+.sq_card button{
+  width: 80%;
+  margin-bottom: 20rpx;
+}
+.container{
+  height: 100%;
+  position: absolute;
+}
+.sheTuan {
+  width: 100%;
+  text-align: center;
+}
+
+.stTabContent {
+  width: 100%;
+  height: 70rpx;
+}
+
+.stTab {
+  position: relative;
+  width: 33.3%;
+  height: 100%;
+  text-align: center;
+  font-size: 34rpx;
+  line-height: 70rpx;
+}
+
+/* .stTab text{
+  position: absolute;
+  top:12rpx;
+  font-size: 34rpx;
+} */
+
+.tabBtmIcon {
+  position: absolute;
+  bottom: 0rpx;
+  width: 50rpx;
+  height: 8rpx;
+  background-color: #ffd200;
+  left: 40%;
+}
+
+/*简介页面样式  */
+
+.stBrief {
+  width: 100%;
+  height: 94%;
+}
+
+.rotateCtn {
+  width: 100%;
+  height: 482rpx;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.stBriefTop {
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  background-color: #fff;
+  box-shadow:4rpx 17rpx 38rpx -15rpx rgba(0, 0, 0,0.3);
+  border-right: 1rpx solid rgba(0, 0, 0,0.3);
+  position: absolute;
+  width: 100%;
+  height: 482rpx;
+}
+
+.stIconContent1 {
+  width: 100%;
+  height: 250rpx;
+  text-align: center;
+}
+
+.stImage1 {
+  height: 210rpx;
+  width: 280rpx;
+  margin: 30rpx 0 10rpx 0;
+}
+
+.stIconContent2 {
+  width: 100%;
+  height: 320rpx;
+  text-align: center;
+}
+
+.stImage2 {
+  height: 290rpx;
+  width: 260rpx;
+  margin: 15rpx auto 15rpx auto;
+}
+
+.stName1 {
+  font-family: STXihei;
+  font-size: 36rpx;
+  color: rgb(1, 1, 1);
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.stName2 {
+  font-family: STXihei;
+  font-size: 36rpx;
+  color: rgb(1, 1, 1);
+  text-align: center;
+  height: 13%;
+}
+.stSlogen {
+  width: 480rpx;
+  height:80rpx;
+  text-align: center;
+  font-family: HYQiHeiY1-DEW;
+  font-size: 30rpx;
+  color: rgb(170, 170, 170);
+  overflow: hidden;
+}
+
+.stBtn1 {
+  width: 80%;
+  height: 46rpx;
+}
+.stBtn2{
+  width: 60%;
+  margin-left: 20%;
+  height: 46rpx;
+}
+.btnArea2 image{
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: -65rpx;
+  margin-top: 32rpx;
+}
+.btnArea1{
+  height: 100%;
+  width: 33%;
+  display: block;
+  text-align: center;
+}
+.btnArea2{
+  height: 100%;
+  width: 45%;
+  display: block;
+  text-align: center;
+}
+._btn{
+  height: 120%;
+  background: linear-gradient(to bottom,#ffed01,#ffd920,#f2c701);
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  font-family: HYQiHeiY1-DEW;
+  color: rgb(255, 255, 255);
+  margin: 20rpx 15rpx;
+  line-height: 56rpx;
+  display: inline-block;
+  width: 70%;
+}
+._btn1{
+  height: 120%;
+  background: linear-gradient(to bottom,#ffed01,#ffd920,#f2c701);
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  font-family: HYQiHeiY1-DEW;
+  color: rgb(255, 255, 255);
+  margin: 20rpx 15rpx;
+  line-height: 56rpx;
+  display: inline-block;
+}
+.btnArea1 image{
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: -65rpx;
+  margin-top: 32rpx;
+}
+.out{
+  position: absolute;
+  z-index: 999;
+}
+._btnClicked {
+  height: 120%;
+  background: linear-gradient(to bottom,#d2d2d2,#e1e1e1,#d3d3d3);
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  font-family: HYQiHeiY1-DEW;
+  color: rgb(255, 255, 255);
+  margin: 20rpx 15rpx;
+  line-height: 56rpx;
+  display: inline-block;
+}
+
+.location {
+  position: absolute;
+  right: 10rpx;
+  top: 70rpx;
+}
+
+.type {
+  position: absolute;
+  right: 10rpx;
+  top: 20rpx;
+}
+
+.location image {
+  width: 106rpx;
+  height: 40rpx;
+}
+
+.type image {
+  width: 146rpx;
+  height: 40rpx;
+}
+
+.location text, .type text {
+  font-family: HYQiHeiY1-DEW;
+  font-size: 20rpx;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  right: 8rpx;
+  top: 8rpx;
+}
+
+.qrCode {
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  border-bottom-right-radius: 40rpx;
+  bottom: 0;
+  right: 0;
+}
+
+.qrCodeImg {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  border-bottom-right-radius: 40rpx;
+}
+.qrCodeBack{
+  width: 80rpx;
+  height:80rpx;
+  position: absolute;
+  border-bottom-right-radius: 40rpx;
+}
+
+.front {
+  animation: front 1s linear 1;
+  backface-visibility: hidden;
+}
+
+.back {
+  animation: back 1s linear 1;
+}
+
+@keyframes front {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(-180deg);
+  }
+}
+
+@keyframes back {
+  from {
+    transform: rotateY(180deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.z1 {
+  z-index: 6;
+}
+
+.z2 {
+  z-index: 5;
+}
+
+.briefText {
+  margin: 80rpx 70rpx 60rpx 70rpx;
+  position: relative;
+}
+
+.textArea {
+  width: 100%;
+  color: rgb(76, 76, 76);
+  word-wrap: break-word;
+  font-size: 26rpx;
+  font-family: MicrosoftYaHei;
+  line-height: 50rpx;
+  letter-spacing: 3rpx;
+}
+
+.joinBtnContent {
+  width: 100%;
+  height: 80rpx;
+  margin-top: 56rpx;
+  margin-bottom: 80rpx;
+}
+
+button::after {
+  border: 0;
+}
+
+/*部门页面样式  */
+
+.Department {
+  width: 100%;
+  height:94%;
+  text-align: center;
+}
+
+.dpmSwiper {
+  height: 1025rpx;
+  background-color: #f2f2f2;
+}
+
+.dpmCard {
+  height: 942rpx;
+  width: 578rpx;
+  background-color: rgb(255, 255, 255);
+  border: 1rpx solid #ffffff;
+  box-shadow: 0rpx 30rpx 20rpx rgba(170, 170, 170, 0.1);
+  margin: 40rpx 86rpx 0 86rpx;
+  border-radius: 25rpx;
+}
+
+.dpmImageContent {
+  width: 100%;
+  padding-top: 50rpx;
+  height: 296rpx;
+}
+
+.dpmImage {
+  width: 526rpx;
+  height: 296rpx;
+}
+
+.dpmTitle {
+  width: 100%;
+  font-family: MicrosoftYaHei;
+  font-size: 40rpx;
+  color: rgb(0, 0, 0);
+  margin: 40rpx 0;
+}
+
+.dpmTextContent {
+  margin: 0 81rpx;
+  width: 416rpx;
+  overflow: hidden;
+}
+
+.dpmText {
+  width: 416rpx;
+  height: 432rpx;
+  font-family: HYQiHeiY1-DEW;
+  font-size: 26rpx;
+  color: rgb(76, 76, 76);
+  letter-spacing: 5rpx;
+  overflow: scroll;
+}
+
+.Dots {
+  width: 100%;
+  height: 128rpx;
+  background-color: #f2f2f2;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-left: 15rpx;
+}
+
+.dot-active {
+  width: 23rpx;
+  height: 23rpx;
+  border-radius: 50%;
+  margin-left: 15rpx;
+}
+
+.nohas{
+  height: 700rpx;
+}
+
+.nohas image{
+  width: 750rpx;
+}
+.noImg{
+  opacity: 0.30;
+}
+
+/*活动页面样式  */
+
+.activity {
+  width: 100%;
+  text-align: center;
+  height: 94%;
+}
+
+.fTitle{
+  width: 100%;
+  padding: 40rpx 0;
+}
+
+.checked {
+  font-family: MicrosoftYaHei;
+  font-size: 40rpx;
+  color: rgb(56, 56, 56);
+  margin-left: 44rpx;
+}
+
+.unchecked {
+  font-family: MicrosoftYaHei;
+  font-size: 34rpx;
+  color: rgb(170, 170, 170);
+  margin-left: 44rpx;
+}
+
+.unfinished {
+  width: 100%;
+  text-align: center;
+}
+
+.finished {
+  width: 100%;
+  text-align: center;
+}
+
+.hdContent {
+  width: 100%;
+}
+
+.ufnItem {
+  width: 100%;
+  height: 186rpx;
+  padding-bottom: 40rpx;
+  padding-left: 30rpx;
+}
+
+.hdImage {
+  width: 300rpx;
+  height: 186rpx;
+  border-radius: 10rpx;
+  box-shadow: 3rpx 3rpx 14rpx rgba(142, 142, 142,0.4);
+}
+
+.hdTitle {
+  height: 186rpx;
+  width: 350rpx;
+  padding-left: 30rpx;
+  position: relative;
+}
+
+.h2 {
+  display: block;
+  color: rgb(0, 0, 0);
+  font-size: 30rpx;
+  font-family:HYQiHeiY1-DEW;
+  line-height: 45rpx;
+  padding-bottom: 32rpx;
+  text-align: left;
+}
+
+.activeName{
+  display: block;
+  font-family:HYQiHeiY1-DEW;
+  color: rgb(196, 196, 196);
+  font-size: 24rpx;
+  text-align: left;
+}
+
+.timeAdress{
+  padding-top: 10rpx;
+  color: rgb(170, 170, 170);
+  font-size: 24rpx;
+  font-family:HYQiHeiY1-DEW;
+}
+
+.time{
+  padding-right: 50rpx;
+}
+
+.adress image{
+  height: 26rpx;
+  width: 16rpx;
+}
+
+.adresstext{
+  padding-left: 10rpx;
+}
+
+.goto{
+  height: 30rpx;
+  width: 16rpx;
+  position: absolute;
+  right: 0;
+  top: 48%;
+}
+.goto image{
+  height: 30rpx;
+  width: 16rpx;
+}
+
+.fnBtmTips {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 30rpx;
+  padding-top: 8rpx;
+  height: 180rpx;
+  border-top: 3rpx solid rgb(183, 183, 183);
+  font-size: 33rpx;
+  color: rgb(183, 183, 183);
+}
+
+.masking{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1000;
+}
+.masking_{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.5);
+}
+.maskingcon{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  position: absolute;
+}
+.maskingBtn1{
+  position: absolute;
+  width: 100%;
+  top: 490rpx;
+  left: 37rpx;
+}
+/* .maskingBtn2{
+    position: absolute;
+    width: 100%;
+    top: 490rpx;
+    left: 102rpx;
+} */
+.maskingImg{
+  width:462rpx;
+  height: 191rpx;
+  position: absolute;
+  top: 490rpx;
+  left: 37rpx;
+}

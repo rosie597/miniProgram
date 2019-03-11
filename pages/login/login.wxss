@@ -1,0 +1,24 @@
+/* pages/login/login.wxss */
+page{
+  background-color: white;
+}
+.getInfoCtn{
+  width: 100%;
+  height: 100%;
+  padding-top: 30%;
+}
+.getInfoCtn image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.getInfoCtn .text{
+  width: 80%;
+  height: 80px;
+  font-size: 32rpx;
+  margin-top: 60rpx;
+  color:rgb(162,162,162);
+}
+.getInfoCtn button{
+  width: 80%;
+}

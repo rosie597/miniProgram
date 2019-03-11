@@ -1,0 +1,49 @@
+<!--pages/association/association.wxml-->
+<view class='container flex flex-v flex-a-c flex-j-j' bindtap='pageTapFn'>
+  <!--搜索框  -->
+  <view class='searchContent flex flex-a-c flex-j-j' wx:if='{{isSearchShow}}'>
+    <view class='selectArea flex flex-a-c flex-j-c' catchtap='dSelectFn'>
+      <image src="{{isSelectShow?'../../images/pulldownicon.png':'../../images/pulldownicon1.png'}}" class="selectIcon"></image>
+      <view>{{district}}</view>
+    </view>
+    <view class='inputArea flex flex-a-c flex-j-c'>
+      <icon type='search' class='searchIcon' size='12' color='rgba(138, 138,138, 0.4)'></icon>
+      <input type='text' class='searchInput' placeholder='      搜索' bindtap='toSearchPage' disabled></input>
+    </view>
+    <view class='selectItems flex flex-v' wx:if="{{isSelectShow}}">
+      <block wx:for="{{districts}}" wx:key='{{item.name}}'>
+        <view class="{{item.name==district?'selectItem_selected':'selectItem'}}" bindtap='dItemFn' data-index="{{index}}" id='{{item.id}}' data-id='{{item.name}}'>{{item.name}}校区</view>
+      </block>
+    </view>
+  </view>
+
+  <!--头部tab  -->
+  <view class='stTabContent  flex flex-a-c flex-j-j' wx:if='{{isTabShow}}'>
+      <block wx:for="{{districts}}" wx:key='{{item.name}}'>
+        <view class="stTab flex flex-v flex-a-c flex-j-c" bindtap='dItemFn' id='{{item.id}}' data-index="{{index}}" data-id='{{item.name}}'>
+          <span>{{item.name}}</span>
+          <view class='tabBtmIcon' wx:if="{{item.name==district?true:false}}"></view>
+        </view>
+      </block>
+  </view>
+
+  <view class='stContent flex flex-v flex-a-c' bindsrcoll="scrollFn">
+    <block wx:for="{{stMessage}}" wx:key="{{item.name}}">
+      <view class='stItem flex' bindtap='toStDetailFn' id='{{item.id}}' index='{{index}}' data-name='{{item.name}}'>
+        <view class='stImageContent flex'>
+          <image class="stImage {{item.show?'done':'lazy'}}" src="{{item.show?item.logoUrl:''}}" mode='aspectFit' data-src='{{item.logoUrl}}'></image>
+          <view class='stTitleIcon'></view>
+        </view>
+        <view class='stTextContent flex flex-v'>
+          <view class='stTitleContent flex flex-j-j'>
+            <view class='stName flex flex-a-c'>{{item.name}}</view>
+          </view>
+          <view class='stType'>{{item.associationCategory}}</view>
+          <!-- <view class='stSlogen flex flex-a-c'>{{item.slogan}}</view> -->
+          <view class='stDetail'>{{item.activityIntroduction}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>

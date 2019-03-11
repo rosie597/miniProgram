@@ -1,0 +1,123 @@
+<!--pages/index/index.wxml-->
+<view class="container flex flex-v flex-a-c flex-j-j" bindtap='pageTap'>
+  <view class='_grey' wx:if="{{notice_num&&isGuideShow}}" catchtouchmove="preventTouchMove">
+    <view class='guide_card'>
+      <image class='qmLogo' src='../../images/logo.png'></image>
+      <view class='text1'> Hi,同学~</view>
+      <view class='text2'>您有<text style="font-family:'microsoftYaHei-Bold';font-size:42rpx;color:rgb(255,210,0);font-weight:bold;"> {{notice_num}} </text>条通知喔</view>
+    </view>
+    <view class='btn1 flex flex-j-c flex-a-c' catchtap='ikonw_fn'>知道啦</view>
+    <image class='hand' src='../../images/guide_hand.png'></image>
+  </view>
+  <view class='headContent flex'>
+    <view class='hAtitlle'>
+      <h class="h1">热门活动</h>
+    </view>
+    <icon type='search' size='12' class='searchIcon' color='rgb(138, 138,138)' bindtap='toSearchPage'></icon>
+    <text class='searchText' bindtap='toSearchPage'>搜索社团或活动</text>
+    <input class='topInput' type='text' bindtap='toSearchPage' disabled>
+    </input>
+  </view>
+  <view class='hotActivity'>
+    <swiper class="swiper" autoplay="true" interval="3000" duration="500" bindchange='swiperChange' next-margin='150rpx'>
+        <block  wx:for="{{hotHdInfo}}" wx:key='{{item.id}}'>
+          <swiper-item bindtap="toHotHdPage" id='{{item.id}}' class='swiper-item' data-index='{{index}}'>
+            <image src="{{item.cover}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+    </swiper>
+    <view class='hotDetail flex flex-v flex-j-c'>
+      <view style="font-size:38rpx;text-align:left;width:90%;margin-bottom:10rpx;" id='{{hotHdInfo[currentSwiper].id}}' bindtap='toHotHdPage'>{{hotHdInfo[currentSwiper].title}}</view>
+      <view class='hot_detailInfo flex flex-a-c flex-j-j' style='width:90%;'>
+        <span>{{hotHdInfo[currentSwiper].associationName}}    </span><span>{{hotHdInfo[currentSwiper].campusName}}    </span> <span>{{hotHdInfo[currentSwiper].startTime}}</span>
+      </view>
+      <image src='../../images/paper_plane.png' id='{{hotHdInfo[currentSwiper].id}}' bindtap='toHotHdPage'></image>
+    </view>
+    <view class='Dots flex flex-a-c flex-j-c'>
+      <block wx:for="{{dotImgs}}" wx:key='{{item}}'>  
+        <!--  -->
+        <view class="dot" id='{{item}}' style="background-color:{{item==currentSwiper?'rgb(255,210,0)':'rgb(255,240,171)'}}"/>
+      </block>  
+    </view>
+  </view>
+
+  <view class='moreActivity'>
+    <!-- <view class='mATitle'>
+      <h class='h1'>更多活动</h>
+    </view>
+    <view class='mATabContent  flex flex-a-c flex-j-j'>
+      <view class="mAtab  flex flex-v flex-a-c flex-j-c" bindtap='mATabTapFn1' id="all">
+        <span>全部</span>
+        <view class='tabBtmIcon' wx:if="{{isIconShow1}}"></view>
+      </view>
+      <view class="mAtab flex flex-v flex-a-c flex-j-c" bindtap='mATabTapFn2' id='this_week'>
+        <span>本周</span>
+        <view class='tabBtmIcon' wx:if="{{isIconShow2}}"></view>
+      </view>
+      <view class="mAtab flex flex-v flex-a-c flex-j-c" bindtap='mATabTapFn3' id='next_week'>
+        <span>下周</span>
+        <view class='tabBtmIcon' wx:if="{{isIconShow3}}"></view>
+      </view>
+    </view> -->
+    <view class='headContent flex'>
+      <view class='hAtitlle'>
+        <h class="h1">更多活动</h>
+      </view>
+      <view class='selectArea flex flex-a-c flex-j-c' catchtap='dSelectFn'>
+        <view style="font-family">{{week_time}}</view>
+        <image src="{{isSelectShow?'../../images/pulldownicon.png':'../../images/pulldownicon1.png'}}" class="selectIcon"></image>
+      </view>
+      <view class='selectItems flex flex-v' wx:if="{{isSelectShow}}">
+        <block wx:for="{{weeks}}" wx:key='{{item}}'>
+          <view class="{{item==week_time?'selectItem_selected':'selectItem'}} flex flex-a-c flex-j-c" bindtap='dItemFn' data-index="{{index}}" id='{{item}}'>{{item}}</view>
+        </block>
+      </view>
+    </view>
+    <view class='mACardContent flex flex-v flex-a-c flex-j-j' style="background-color:{{maInfo.length==0?'rgb(242,242,242)':'rgb(255,255,255)'}};">
+      <image class='noneImg' src='../../images/tabBarIcon/isEmpty-01.png' wx:if="{{maInfo.length==0?true:false}}"></image>
+      <block wx:for="{{maInfo}}" wx:key='{{item.id}}'>
+        <view class='mACardItem flex flex-a-c' bindtap="toHdPage" id='{{item.id}}'>
+          <view class='img_ctn'><image src="{{item.cover}}" class="mACardImage"/></view>
+            <!-- <view class='mAImgTitle'>
+              <h class='h2'>{{item.title}}</h>
+            </view> -->
+          <view class='right-info flex flex-v'>
+            <image class='goto' src='../../images/goto_yellow.png'></image>
+            <view class='maTitle'>{{item.title}}</view>
+              <view class='maSponsor'>{{item.associationName}}</view>
+              <view class='when_where flex'>
+                <view style='width:80%;' wx:if='{{item.startTime}}'>{{item.startTime?item.startTime+'    ':''}}</view>
+                <image src='../../images/location_icon.png' style='width:16rpx;height:26rpx;'></image>
+                <span>   {{item.campusName}}</span>
+              </view>
+            </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- <view class='mACardContent1' wx:if="{{isIconShow2}}">
+      <image class='noneImg' src='../../images/tabBarIcon/isEmpty-01.png' wx:if="{{maInfo1.length==0?true:false}}"></image>
+      <block wx:for="{{maInfo1}}">
+        <view class='mACardItem' bindtap="toHdPage" id='{{item.id}}'>
+          <image src="{{item.cover}}" class="mACardImage"/>
+            <view class='mAImgTitle'>
+              <h class='h2'>{{item.title}}</h>
+            </view>
+        </view>
+      </block>
+    </view>
+
+    <view class='mACardContent2' wx:if="{{isIconShow3}}">
+      <image class='noneImg' src='../../images/tabBarIcon/isEmpty-01.png' wx:if="{{maInfo2.length==0?true:false}}"></image>
+      <block wx:for="{{maInfo2}}">
+        <view class='mACardItem' bindtap="toHdPage" id='{{item.id}}'>
+          <image src="{{item.cover}}" class="mACardImage"/>
+            <view class='mAImgTitle'>
+              <h class='h2'>{{item.title}}</h>
+            </view>
+        </view>
+      </block>
+    </view> -->
+  </view>
+
+</view>

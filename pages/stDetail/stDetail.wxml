@@ -1,0 +1,169 @@
+<!--pages/stDetail/stDetail.wxml-->
+<view class='container flex flex-v flex-a-c flex-j-j'>
+  <!--社团简介页面  -->
+  <!--头部tab按钮  -->
+  <view class='stTabContent flex flex-a-c flex-j-j'>
+    <view class="stTab flex flex-v flex-a-c" bindtap='stTabTapFn1'>
+      <text>简介</text>
+      <view class='tabBtmIcon' wx:if="{{isIconShow1}}"></view>
+    </view>
+    <view class="stTab" bindtap='stTabTapFn2'>
+      <text>部门</text>
+      <view class='tabBtmIcon' wx:if="{{isIconShow2}}"></view>
+    </view>
+    <view class="stTab" bindtap='stTabTapFn3'>
+      <text>活动</text>
+      <view class='tabBtmIcon' wx:if="{{isIconShow3}}"></view>
+    </view>
+  </view>
+  <view class='stBrief' wx:if='{{isStBriefShow}}'>
+    <view class='rotateCtn'>
+      <view class='{{stBriefTop1}} flex flex-v flex-a-c'>
+        <view class='stIconContent1'>
+          <image src='{{logoUrl}}' class='stImage1' mode='aspectFit'></image>
+        </view>
+        <view class='stName1'>{{name}}</view>
+        <view class='stSlogen'>{{stSlogan}}</view>
+        <view class='stBtn1 flex flex-j-c flex-a-c'>
+          <view class='btnArea1 flex'>
+            <button class='_btn1 flex flex-j-c flex-a-c' open-type='share' style='padding-right:60rpx;'>分享</button>
+            <image src='../../images/share_icon.png' class='btnImg'></image>
+          </view>
+          <view class='btnArea1 flex'>
+            <button class="{{isConcernChecked?'_btnClicked':'_btn1'}} flex flex-j-c flex-a-c" bindtap="concernFn">{{concernimsg}}</button>
+          </view>
+          <view class='btnArea1 flex'>
+            <button class="{{status==1||status==2?'_btn1':'_btnClicked'}} flex flex-j-c flex-a-c" bindtap='toChooseFn' hover-class='none' style='padding-right:60rpx;'>报名</button>
+            <image src='../../images/sign_in.png' class='btnImg'></image>
+          </view>
+        </view>
+        <view class='type'>
+          <image src='type_icon.png'></image>
+          <text>{{stType}}</text>
+        </view>
+        <view class='location'>
+          <image src='../../images/address.png'></image>
+          <text>{{stCampus}}</text>
+        </view>
+        <view class='qrCode' bindtap='rotateFn'>
+          <image src="../../images/qr_code.png" class='qrCodeImg'></image>
+        </view>
+      </view>
+      <view class='{{stBriefTop2}}'>
+        <view class='stIconContent2'>
+          <!-- <image src='{{_stQrUrl}}' style='width:280rpx;height:20rpx;margin-top:20rpx;'catchtap='imagePreview' data-src='{{_stQrUrl}}' wx:if='{{!stQrUrl_d}}'></image> -->
+          <canvas canvas-id='shareCanvas' class='stImage2' style="display:{{stBriefTop2=='stBriefTop z1'?'block':'none'}};width:300rpx;height:300rpx;"  data-src='{{canvasUrl}}' catchtap='imagePreview'></canvas>
+        </view>
+        <view class='stName2'>{{name}}</view>
+        <view class='stBtn2 flex flex-j-c flex-a-c'>
+          <view class='btnArea2 flex'>
+            <button class='_btn flex flex-j-c flex-a-c' open-type='share' style='text-align:left;'>分享</button>
+            <image src='../../images/share_icon.png' class='btnImg2'></image>
+          </view>
+          <view class='btnArea2 flex'>
+            <button class='_btn flex flex-j-c flex-a-c' catchtap='saveImg'>保存</button>
+          </view>
+        </view>
+        <view class='qrCode' bindtap='rotateFn'>
+          <image src="../../images/back.png" class='qrCodeBack'></image>
+        </view>
+      </view>
+    </view>
+    <view class='briefText flex flex-a-c flex-j-c'>
+      <view class='textArea'>{{introduction}}</view>
+    </view>
+  </view> 
+  <!--部门页面  -->
+    <view class='Department' wx:if='{{isDpmShow}}'> 
+      <view class='has' wx:if="{{dpmBriefInfo.length!=0}}" style='height:100%;'>
+        <swiper class="dpmSwiper" autoplay='true' interval="3000" duration="500" bindchange='swiperChange' current="{{currentSwiper}}" bindchange='swiperChange'>
+          <block wx:for="{{dpmBriefInfo}}" wx:key="{{item.name}}">
+              <swiper-item>
+                <view class='dpmCard'>
+                  <view class='dpmImageContent'>
+                    <image  class='dpmImage' src='{{item.imgUrl}}' class='dpmImage' mode='aspectFit'></image>
+                  </view>
+                  <view class='dpmTitle flex flex-a-c flex-j-c'>{{item.name}}</view>
+                  <view class='dpmTextContent flex flex-j-c'>
+                    <view class='dpmText'>{{item.description}}</view>
+                  </view>
+                </view>
+              </swiper-item>
+          </block>
+        </swiper>
+        <view class='Dots flex  flex-j-c'>
+          <block wx:for="{{dotImgs}}">
+            <image src="{{item}}" class="dot{{index==currentSwiper?'-active':''}}"/>
+          </block>
+        </view>
+      </view>
+      <view class='nohas flex flex-a-c flex-j-c' wx:if="{{dpmBriefInfo.length==0}}">
+        <image src='../../images/tabBarIcon/isEmpty-02.png' mode="aspectFit"></image>
+      </view>
+    </view> 
+  <!--活动页面  -->
+  <view class='activity flex flex-v' wx:if="{{isActivityShow}}">
+    <view class='fTitle flex flex-a-c'>
+      <view class="{{unfinish?'checked':'unchecked'}}" bindtap='unFinish'>进行中</view>
+      <view class="{{finish?'checked':'unchecked'}}" bindtap='Finish'>已结束</view>
+    </view>
+    <view class='unfinished' wx:if="{{unfinish&&ufnInfo.length!=0}}">
+      <view class='hdContent flex flex-v flex-a-c flex-j-j'>
+        <block wx:for="{{ufnInfo}}">
+          <view class='ufnItem flex' bindtap="toHdPage" id='{{item.id}}'>
+            <image src="{{item.cover}}" class="hdImage"/>
+            <view class='hdTitle'>
+              <text class='h2'>{{item.title}}</text>
+              <text class='activeName'>{{name}}</text>
+              <view class='timeAdress flex'>
+                <text class='time'>8月31日</text>
+                <view class='adress'>
+                  <image src='../../images/location_icon.png'></image>
+                  <text class='adresstext'>{{stCampus}}</text>
+                </view>
+              </view>
+              <view class='goto'><image src='../../images/goto_yellow.png'></image></view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class='fnBtmTips'>不要触碰我底线~</view>
+    </view>
+    <view class='finished' wx:if="{{finish&&fnInfo.length!=0}}">
+      <view class='hdContent'>
+        <block wx:for="{{fnInfo}}">
+          <view class='ufnItem flex' bindtap="toHdPage" id='{{item.id}}'>
+            <image src="{{item.cover}}" class="hdImage"/>
+            <view class='hdTitle'>
+              <text class='h2'>{{item.title}}</text>
+              <text class='activeName'>{{name}}</text>
+              <view class='timeAdress flex'>
+                <text class='time'>8月31日</text>
+                <view class='adress'>
+                  <image src='../../images/location_icon.png'></image>
+                  <text class='adresstext'>{{stCampus}}</text>
+                </view>
+              </view>
+              <view class='goto'><image src='../../images/goto_yellow.png'></image></view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class='fnBtmTips'>不要触碰我底线~</view>
+    </view>
+    <view class='nohas flex flex-a-c flex-j-c' wx:if="{{(unfinish&&ufnInfo.length==0)||(finish&&(fnInfo.length==0))}}">
+      <image class='noImg' src='../../images/tabBarIcon/isEmpty-01.png' mode='aspectFit'></image>
+    </view>
+  </view>
+</view>
+<view class='masking' bindtap='isMask' wx:if='{{guide}}'>
+  <view class='maskingcon'></view>
+  <image src='../../images/guide1.png' class='maskingImg' bindtap='isMask'></image>
+</view> 
+<view class='masking_' wx:if='{{isUserSq}}' catchtap='sq_btn_tap'>
+  <view class='sq_card'>
+    <image src='../../images/logo.png'></image>
+    <view class='text' word-wrap='wrap'>青芒社团申请获得您将图片保存到相册的权限</view>
+    <button open-type="openSetting" bindopensetting='openSetting' type='primary' catchtap='sq_btn_tap'>授权</button>
+  </view>
+</view>

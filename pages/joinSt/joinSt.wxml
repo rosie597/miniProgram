@@ -1,0 +1,144 @@
+<!--pages/joinSt/joinSt.wxml-->
+<view class='container flex flex-v flex-a-c flex-j-j' bindtap='pageTabFn'>
+  <view class='stIconContent'>
+      <image src='{{logo}}' class='stImage'></image>
+  </view>
+  <view class='stSlogen'>{{slogan}}</view>
+  <view class='line'></view>
+  <view class='formArea flex flex-v flex-a-c'>
+    <form class='joinForm flex flex-v flex-a-c' bindsubmit='joinSubmitFn'>
+       <view class='itemArea flex flex-a-c flex-j-c' wx:if="{{isItemShow.name}}" id='name'>
+        <text>姓名</text>
+        <view class='inputContent'>
+          <input type='text' name='name' value='{{_formVal.name}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.sex}}' id='sex'>
+        <text>性别</text>
+        <radio-group name="sex" class='radio-group flex flex-a-c flex-j-j' bindchange="radioChange">
+          <label><radio value="男" color='rgb(255,210,0)' checked="{{_formVal.sex=='男'}}"/>男</label>
+          <label><radio value="女" color='rgb(255,210,0)' checked="{{_formVal.sex=='女'}}"/>女</label>
+        </radio-group>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if="{{isItemShow.academy}}">
+        <text>学院</text>
+        <view class='inputContent'>
+          <input type='text' name='academy' value='{{_formVal.academy}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.profession}}'>
+        <text>专业</text>
+        <view class='inputContent'>
+          <input type='text' name='profession' value='{{_formVal.profession}}'></input>
+        </view>
+      </view>
+       <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.grade}}'>
+        <!-- <view class='njPickContent'> -->
+          <text>年级</text>
+          <view class='inputContent'>
+            <!--禁用输入框,绑定value的值  -->
+            <input name='grade' type='text' class='chooseVal' disabled value='{{njValue}}' style='text-align:center;'  catchtap='pickNjFn'></input>
+            <image class='pickIcon' src='../../images/pulldownicon.png' catchtap='pickNjFn'></image>
+          </view>
+          <!-- <image class='pickIcon' src='../../images/pulldownicon.png'></image> -->
+        <!-- </view> -->
+        <scroll-view class='njItems flex flex-v' wx:if="{{isPickShow}}" scroll-y="true">
+          <block  wx:for='{{njItems}}' wx:key='{{item}}'>
+            <!--绑定data index方便调用 -->
+            <view class='njItem' catchtap='njItemFn' data-index="{{index}}">{{item}}</view>
+          </block>
+        </scroll-view> 
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if="{{isItemShow.studentId}}">
+        <text>学号</text>
+        <view class='inputContent'>
+          <input type='number' name='studentId' value='{{_formVal.studentId}}'></input>
+        </view>
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.phoneNumber}}'>
+        <text>手机号码</text>
+        <view class='inputContent'>
+          <input type='number' name='phoneNumber' value='{{_formVal.phoneNumber}}'></input>
+        </view>
+      </view> 
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.politicalStatus}}'>
+        <!-- <view class='njPickContent'> -->
+          <text>政治面貌</text>
+          <view class='inputContent'>
+            <!--禁用输入框,绑定value的值  -->
+            <input name='politicalStatus' type='text' class='chooseVal' disabled value='{{polityValue}}' style='text-align:center;'  catchtap='pickPolityFn'></input>
+            <image class='pickIcon' src='../../images/pulldownicon.png' catchtap='pickNjFn3'></image>
+          </view>
+          <!-- <image class='pickIcon' src='../../images/pulldownicon.png'></image> -->
+        <!-- </view> -->
+        <scroll-view class='njItems flex flex-v' wx:if="{{isPickShow3}}" scroll-y="true">
+          <block  wx:for='{{polityItems}}' wx:key='{{item}}'>
+            <!--绑定data index方便调用 -->
+            <view class='njItem' catchtap='polityItemFn' data-index="{{index}}">{{item}}</view>
+          </block>
+        </scroll-view> 
+      </view>
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if="{{isItemShow.firstChoice}}">
+        <!-- <view class='njPickContent'> -->
+          <text>第一志愿</text>
+          <view class='inputContent'>
+            <!--禁用输入框,绑定value的值  -->
+            <input type='text' class='chooseVal' disabled value='{{zyValue1}}' name='firstChoice' catchtap='pickZjFn1'></input>
+            <image class='pickIcon' src='../../images/pulldownicon.png' catchtap='pickNjFn1'></image>
+          </view>
+          <!-- <image class='pickIcon' src='../../images/pulldownicon.png'></image> -->
+        <!-- </view> -->
+        <scroll-view class='njItems' wx:if="{{isPickShow1}}" scroll-y="true">
+          <block  wx:for='{{zyItems}}' wx:key='{{item}}'>
+            <!--绑定data index方便调用 -->
+            <view class='njItem' catchtap='zyItemFn1' data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+          </block>
+        </scroll-view>
+      </view>
+
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if="{{isItemShow.secondChoice}}">
+        <!-- <view class='njPickContent'> -->
+          <text>第二志愿</text>
+          <view class='inputContent'>
+            <!--禁用输入框,绑定value的值  -->
+            <input type='text' class='chooseVal' disabled value='{{zyValue2}}' name='secondChoice' catchtap='pickZjFn2'></input>
+            <image class='pickIcon' src='../../images/pulldownicon.png' catchtap='pickNjFn2'></image>
+          </view>
+        <!-- </view> -->
+        <scroll-view class='njItems' wx:if="{{isPickShow2}}" scroll-y="true">
+          <block  wx:for='{{zyItems}}' wx:key='{{item}}'>
+            <!--绑定data index方便调用 -->
+            <view class='njItem' catchtap='zyItemFn2' data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+          </block>
+        </scroll-view>
+      </view>
+            <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.dormitory}}'>
+        <text>宿舍号</text>
+        <view class='inputContent'>
+          <input type='text' name='dormitory' value='{{_formVal.dormitory}}'></input>
+        </view>
+      </view> 
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.qqNumber}}'>
+        <text>QQ号</text>
+        <view class='inputContent'>
+          <input type='number' name='qqNumber' value='{{_formVal.qqNumber}}'></input>
+        </view>
+      </view> 
+      <view class='itemArea flex flex-a-c flex-j-c' wx:if='{{isItemShow.weiXin}}'>
+        <text>微信号</text>
+        <view class='inputContent'>
+          <input type='text' name='weiXin' value='{{_formVal.weiXin}}'></input>
+        </view>
+      </view> 
+      <view class='itemTextArea' wx:if='{{isItemShow.selfIntroduction}}'>
+        <text>自我介绍</text>
+        <view class='textContent'>
+          <textarea id='selfConduction' name='selfIntroduction' value='{{_formVal.selfIntroduction}}'></textarea>
+        </view>
+      </view>
+      <view class='btnArea flex flex-a-c flex-j-c'>
+        <button class='nextBtn flex flex-a-c flex-j-c' formType='submit'>提交</button>
+      </view>
+    </form>
+  </view>
+</view>

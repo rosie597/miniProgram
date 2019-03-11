@@ -1,0 +1,14 @@
+<!--pages/hdSuccessJoin/hdSuccessJoin.wxml-->
+<view class='container flex-v flex-a-c flex-j-j'>
+    <view class='stIconContent'>
+      <image src='../../images/logo1.png' class='stImage'></image>
+    </view>
+    <view class='stSlogen'>{{slogen}}</view>
+    <view class='line'></view>
+    <view class='briefText  flex flex-a-c flex-j-c'>
+      <text class='textArea'>您已经成功提交报名表\n请耐心等侯报名通知</text>
+    </view>
+    <view class='backBtnContent'>
+      <button class='backBtn' bindtap='backToIndexFn' hover-class='backBtn_hover'>返回首页</button>
+    </view>
+  </view>
